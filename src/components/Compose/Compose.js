@@ -10,7 +10,7 @@ export default class Compose extends Component {
     super();
     
     this.state = {
-      text: ''
+      text: '',
     };
 
     this.createPost = this.createPost.bind( this );
@@ -28,6 +28,11 @@ export default class Compose extends Component {
     // Destructuring
     const { text } = this.state;
 
+    
+
+
+
+    console.log(this.state)
     return (
       <section className="Compose__parent">
         <div className="Compose__top">
