@@ -53,7 +53,7 @@ export default class Post extends Component {
     // This is destructuring! You can also think of it as being written as so:
       // const editing = this.state.editing
       // const showMasterMenu = this.state.showMasterMenu
-    const { editing, showMasterMenu } = this.state;
+    const { editing, deletePostFn, showMasterMenu } = this.state;
 
     return (
       // Main body of post
@@ -66,7 +66,7 @@ export default class Post extends Component {
           {/* Drop-down menu. Remember that the "showMasterMenu" variable has been destructured off of this.state */}
           <div className="Post__master-menu" style={ { display: showMasterMenu ? 'flex' : 'none' } }>
             <span onClick={ this.showEdit }>Edit</span>
-            <span>Delete</span>
+            <span onClick={ () => deletePostFn  }>Delete</span>
           </div>
         </div>
 
