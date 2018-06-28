@@ -13,6 +13,8 @@ class App extends Component {
 
     this.state = {
       posts: []
+      
+
     };
 
      this.updatePost = this.updatePost.bind( this );
@@ -25,8 +27,10 @@ class App extends Component {
       this.setState({ posts: results.data });
     });
   }
+
   // 'https://practiceapi.devmountain.com/api/?page=${num}' query , to access from backend (req.query.page)
    // 'https://practiceapi.devmountain.com/api/posts', { this.state.text } req.body , to access from backend (req.body.text)
+
    updatePost( id, text ) {
     axios.put(`https://practiceapi.devmountain.com/api/posts?id=${ id }`, { text }).then( results => {
       this.setState({ posts: results.data });
@@ -59,8 +63,8 @@ class App extends Component {
           {
             posts.map( post => (
               <Post key={ post.id } 
-              text = {post.text}
-              date = {post.date}
+              text={post.text}
+              date={post.date}
               id = {post.id} 
               updatePostFn = {this.updatePost}
               deletePostFn={ this.deletePost } />
