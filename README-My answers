@@ -1,0 +1,98 @@
+Robert H.
+
+/* CREATE TABLE person (ID INTEGER PRIMARY KEY AUTOINCREMENT,
+name varchar(250),age integer,height integer,city varchar(250),favoriteColor varchar(250)                    
+); */
+
+/* INSERT INTO person (name, age,height,city,favoriteColor) VALUES ("joe dirt",21,200,"chicago","blue");
+INSERT INTO person (name, age,height,city,favoriteColor) VALUES ("TimmmmmmAAaaahhhhy",16,150,"south park","TimmaAAhhhy");
+INSERT INTO person (name, age,height,city,favoriteColor) VALUES ("MOM",77,138,"florida","red");
+INSERT INTO person (name, age,height,city,favoriteColor) VALUES ("R Kelly",40,180,"unknown","yellow");
+INSERT INTO person (name, age,height,city,favoriteColor) VALUES ("robert",34,230,"miami","black"); */
+
+/* select * from person ORDER BY height DESC; */
+
+/* select * from person ORDER BY height ASC; */
+
+/* SELECT * from person  ORDER BY age DESC; */
+
+/* SELECT * from Person WHERE age > 20; */
+
+/* SELECT * from Person WHERE age  == 18; */
+
+/* SELECT * from person WHERE age < 20 OR age >30; */
+
+/* SELECT * from person WHERE age != 27; */
+
+/* SELECT * from person WHERE favoriteColor != 'red'; */
+
+/* SELECT * from person WHERE favoriteColor != 'red' AND favoriteColor != 'blue'; */
+
+/* SELECT * from person WHERE favoriteColor = 'orange' OR favoriteColor = 'green'; */
+
+/* SELECT * from person WHERE favoriteColor IN ('orange','Blue', 'green'); */
+
+/* SELECT * from person where favoriteColor in ('yellow', 'purple'); */
+
+/* CREATE TABLE orders (ID INTEGER PRIMARY KEY AUTOINCREMENT, PersonID integer,
+ProductName varchar(250),ProductPrice float, Quantity integer); 
+ */
+/*  INSERT INTO orders (PersonId,ProductName,ProductPrice,Quantity) VALUES (1,"BBQ RIBS",12.45,2) */
+/*  INSERT INTO orders (PersonId,ProductName,ProductPrice,Quantity) VALUES (1,"Ice Tea",2.75,4);
+ INSERT INTO orders (PersonId,ProductName,ProductPrice,Quantity) VALUES (3,"rice n beans",2.23,4);
+ INSERT INTO orders (PersonId,ProductName,ProductPrice,Quantity) VALUES (3,"flat steak",4.75,1);
+ INSERT INTO orders (PersonId,ProductName,ProductPrice,Quantity) VALUES (2,"BBQ RIBS",12.45,8); */
+
+/* SELECT * from orders; */
+
+/* SELECT SUM (quantity) FROM orders; */
+
+/* SELECT SUM (ProductPrice * Quantity) from Orders; */
+
+/* SELECT SUM (ProductPrice * Quantity) FROM orders WHERE PersonId = 1; */
+
+/* INSERT INTO artist ( name) VALUES ("HELLO");
+INSERT INTO artist ( name) VALUES ("NOT FOUND"); 
+ */
+
+/* INSERT INTO artist ( name) VALUES ("hippy group"); */
+
+
+/* SELECT * from artist ORDER BY name DESC LIMIT 10; */
+
+/* SELECT * from artist ORDER BY name ASC LIMIT 5; */
+
+/* SELECT * from artist where name LIKE 'black%'; */
+/* 
+SELECT * FROM Artist WHERE Name LIKE '%Black%'; */
+
+
+/* SELECT firstname, lastname from employee where city = "Calgary"; */
+
+/* SELECT firstname, lastname, MIN(birthdate) from employee; */
+
+/* SELECT firstname, lastname, MAX(birthdate) from employee; */
+
+/* SELECT * from employee where ReportsTo =2; */
+
+/* select COUNT(*) from employee where city ="Lethbridge"   */
+
+/* select COUNT(*) from invoice where billingcountry ="USA"; */
+
+/* SELECT MAX(Total) FROM invoice; */
+
+/* 
+SELECT MIN(Total) FROM invoice; */
+
+/* SELECT * FROM invoice WHERE total > 5; */
+
+/*  SELECT count(*) FROM invoice WHERE total < 5;  */
+
+
+/* select count(*) from invoice WHERE BillingState in ("CA","TX","AZ"); */
+
+
+/* select avg(total) from invoice;
+
+SELECT SUM(Total) FROM Invoice; */
+
