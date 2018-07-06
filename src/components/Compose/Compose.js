@@ -15,6 +15,11 @@ export default class Compose extends Component {
 
     this.createPost = this.createPost.bind( this );
   }
+  componentDidMount() {
+    axios.get('https://practiceapi.devmountain.com/api/posts').then( results => {
+      this.setState({ posts: results.data });
+    });
+  }
 
   updateText( text ) {
     this.setState({ text });
