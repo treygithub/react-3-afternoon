@@ -12,7 +12,8 @@ class App extends Component {
     super();
 
     this.state = {
-      posts: []
+      posts: [],
+      baseUrl: "https://practiceapi.devmountain.com/api"
     };
 
     this.updatePost = this.updatePost.bind( this );
@@ -20,54 +21,57 @@ class App extends Component {
     this.createPost = this.createPost.bind( this );
   }
   
-  componentDidMount() {
-    axios.get('https://practiceapi.devmountain.com/api/posts').then( results => {
-      this.setState({ posts: results.data });
-    });
-  }
+    componentDidMount() {
+        axios
+          .get(`${this.state.baseUrl}/posts`)
+          .then(response => this.setState({ posts: response.data }))
+          .catch(error => console.log(error));
+    }
+        
+    updatePost(text, id) {
+        axios
+          .put(`${this.state.baseUrl}/posts?id=${id}`, { text })
+          .then(response => this.setState({ posts: response.data }))
+          .catch(error => console.log(error));
+         }
 
-  updatePost( id, text ) {
-    axios.put(`https://practiceapi.devmountain.com/api/posts?id=${ id }`, { text }).then( results => {
-      this.setState({ posts: results.data });
-    });
-  }
+    deletePost(id) {
+      axios
+      .delete(`${this.state.baseUrl}/posts?id=${id}`)
+      .then(results => {
+        this.setState({ posts: results.data });
+      });
+    }
 
-  deletePost( id ) {
-    axios.delete(`https://practiceapi.devmountain.com/api/posts?id=${ id }`).then( results => {
-      this.setState({ posts: results.data });
-    });
-  }
-
-  createPost( text ) {
-    axios.post('https://practiceapi.devmountain.com/api/posts', { text }).then( results => {
-      this.setState({ posts: results.data });
-    });
-  }
+  createPost(text) {
+    axios
+      .post(`${this.state.baseUrl}/posts`, { text })
+      .then(response => this.setState({ posts: response.data }))
+      .catch(error => console.log(error));
+    }
 
   render() {
     const { posts } = this.state;
 
     return (
       <div className="App__parent">
-        <Header />
+      <Header />
 
-        <section className="App__content">
-
-          <Compose createPostFn={ this.createPost } />
-          
-          {
-            posts.map( post => (
-              <Post key={ post.id }
-                    id={ post.id }
-                    text={ post.text}
-                    date={ post.date }
-                    updatePostFn={ this.updatePost }
-                    deletePostFn={ this.deletePost } />
-            ))
-          }
-
-        </section>
-      </div>
+      <section className="App__content">
+        <Compose createPostFn={this.createPost} />
+        {console.log(posts)}
+        {posts.map((post, i) => (
+          <Post
+            key={post.id}
+            text={post.text}
+            date={post.date}
+            updatePostFn={this.updatePost}
+            id={post.id}
+            deletePostFn={this.deletePost}
+          />
+        ))}
+      </section>
+    </div>
     );
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProfileIcon from 'react-icons/lib/md/person-outline';
+import axios from 'axios'
 
 import './Compose.css';
 
@@ -10,7 +11,7 @@ export default class Compose extends Component {
     super();
     
     this.state = {
-      text: '',
+      text: ''
     };
 
     this.createPost = this.createPost.bind( this );
@@ -21,8 +22,8 @@ export default class Compose extends Component {
     });
   }
 
-  updateText( text ) {
-    this.setState({ text });
+  updateText( value ) {
+    this.setState({ text: value });
   }
 
   createPost() {
